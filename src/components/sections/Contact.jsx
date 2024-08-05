@@ -1,6 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import emailjs from "@emailjs/browser";
 import EarthCanvas from "../canvas/Earth";
 
 const Container = styled.div`
@@ -51,6 +50,7 @@ const Desc = styled.div`
     font-size: 16px;
   }
 `;
+
 const ContactForm = styled.form`
   width: 95%;
   max-width: 600px;
@@ -64,12 +64,14 @@ const ContactForm = styled.form`
   margin-top: 28px;
   gap: 12px;
 `;
+
 const ContactTitle = styled.div`
   font-size: 28px;
   margin-bottom: 6px;
   font-weight: 600;
   color: ${({ theme }) => theme.text_primary};
 `;
+
 const ContactInput = styled.input`
   flex: 1;
   background-color: transparent;
@@ -83,6 +85,7 @@ const ContactInput = styled.input`
     border: 1px solid ${({ theme }) => theme.primary};
   }
 `;
+
 const ContactInputMessage = styled.textarea`
   flex: 1;
   background-color: transparent;
@@ -96,26 +99,12 @@ const ContactInputMessage = styled.textarea`
     border: 1px solid ${({ theme }) => theme.primary};
   }
 `;
+
 const ContactButton = styled.input`
   width: 100%;
   text-decoration: none;
   text-align: center;
-  background: hsla(271, 100%, 50%, 1);
-  background: linear-gradient(
-    225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
-  );
-  background: -moz-linear-gradient(
-    225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
-  );
+  background: linear-gradient(225deg, hsla(271, 100%, 50%, 1) 0%, hsla(294, 100%, 50%, 1) 100%);
   padding: 13px 16px;
   margin-top: 2px;
   border-radius: 12px;
@@ -127,25 +116,34 @@ const ContactButton = styled.input`
 
 const Contact = () => {
   const form = useRef();
+  const [status, setStatus] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_tox7kqs",
-        "template_nv7k7mj",
-        form.current,
-        "SybVGsYS52j2TfLbi"
-      )
-      .then(
-        (result) => {
-          alert("Message Sent");
-          form.current.resut();
+    const formData = new FormData(form.current);
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        (error) => {
-          alert(error);
-        }
-      );
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setStatus('Message Sent');
+        form.current.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      setStatus('Error: ' + error.message);
+    }
   };
 
   return (
@@ -154,16 +152,17 @@ const Contact = () => {
         <EarthCanvas />
         <Title>Contact</Title>
         <Desc>
-          Feel free to reach out to me for any questions or opportunities!
+          I’m open to new opportunities and collaborations—feel free to contact me!
         </Desc>
-        <ContactForm onSubmit={handleSubmit}>
+        <ContactForm ref={form} onSubmit={handleSubmit}>
           <ContactTitle>Email Me 🚀</ContactTitle>
-          <ContactInput placeholder="Your Email" name="from_email" />
-          <ContactInput placeholder="Your Name" name="from_name" />
-          <ContactInput placeholder="Subject" name="subject" />
-          <ContactInputMessage placeholder="Message" name="message" rows={4} />
+          <ContactInput placeholder="Your Email" name="from_email" required />
+          <ContactInput placeholder="Your Name" name="from_name" required />
+          <ContactInput placeholder="Subject" name="subject" required />
+          <ContactInputMessage placeholder="Message" name="message" rows={4} required />
           <ContactButton type="submit" value="Send" />
         </ContactForm>
+        {status && <p>{status}</p>}
       </Wrapper>
     </Container>
   );

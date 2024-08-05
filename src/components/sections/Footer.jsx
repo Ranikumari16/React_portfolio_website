@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/constants";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
+import MessageIcon from "@mui/icons-material/Message";
 import InstagramIcon from "@mui/icons-material/Instagram";
+
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -29,7 +30,7 @@ const FooterWrapper = styled.div`
 const Logo = styled.div`
   font-weight: 600;
   font-size: 20px;
-  color: ${({ theme }) => theme.primary};
+ color: #ff69b4;
 `;
 
 const Nav = styled.nav`
@@ -88,7 +89,7 @@ const Footer = () => {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>Rishav Chanda</Logo>
+        <Logo>Rani kuamri</Logo>
         <Nav>
           <NavLink href="#About">About</NavLink>
           <NavLink href="#Skills">Skills</NavLink>
@@ -97,20 +98,22 @@ const Footer = () => {
           <NavLink href="#Education">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display">
-            <FacebookIcon />
-          </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.twitter} target="display">
-            <TwitterIcon />
-          </SocialMediaIcon>
+         
+          
           <SocialMediaIcon href={Bio.linkedin} target="display">
             <LinkedInIcon />
+          </SocialMediaIcon>
+          <SocialMediaIcon href={Bio.email} target="display">
+            <EmailIcon />
+          </SocialMediaIcon>
+          <SocialMediaIcon href={Bio.message} target="display">
+            <MessageIcon />
           </SocialMediaIcon>
           <SocialMediaIcon href={Bio.insta} target="display">
             <InstagramIcon />
           </SocialMediaIcon>
         </SocialMediaIcons>
-        <Copyright>&copy; 2024 Rishav Chanda. All rights reserved.</Copyright>
+        <Copyright>&copy; 2024 Rani Kumari. All rights reserved.</Copyright>
       </FooterWrapper>
     </FooterContainer>
   );

@@ -87,11 +87,11 @@ const EducationCard = ({ education }) => {
         display: "flex",
         flexDirection: "column",
         gap: "12px",
-        background: "#1d1836",
+        background: "#1d1837",
         color: "#fff",
         boxShadow: "rgba(23, 92, 230, 0.15) 0px 4px 24px",
         // backdropFilter: "blur(3px) saturate(106%)",
-        backgroundColor: "rgba(17, 25, 40, 0.83)",
+        backgroundColor: "rgba(17, 35, 40, 0.83)",
         border: "1px solid rgba(255, 255, 255, 0.125)",
         borderRadius: "6px",
       }}

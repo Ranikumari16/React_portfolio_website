@@ -38,7 +38,7 @@ const Tags = styled.div`
 const Tag = styled.div`
   font-size: 12px;
   font-weight: 400;
-  color: ${({ theme }) => theme.primary};
+  color: #ff69b4;
   background-color: ${({ theme }) => theme.primary + 15};
   padding: 2px 8px;
   border-radius: 10px;
@@ -96,12 +96,7 @@ const Avatar = styled.img`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 3px solid ${({ theme }) => theme.card};
 `;
-const Button = styled.a`
-  color: ${({ theme }) => theme.primary};
-  text-decoration: none;
-  font-weight: 600;
-  text-align: center;
-`;
+
 
 const ProjectCard = ({ project, setOpenModal }) => {
   return (

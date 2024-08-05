@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/constants";
 import Typewriter from "typewriter-effect";
-import HeroImg from "../../images/HeroImage.jpg";
+import HeroImg from "../../images/front.gif";
 import HeroBgAnimation from "../HeroBgAnimation";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
@@ -111,7 +111,7 @@ const TextLoop = styled.div`
 
 const Span = styled.div`
   cursor: pointer;
-  color: ${({ theme }) => theme.primary};
+  color: #ff69b4;
 `;
 
 const SubTitle = styled.div`
@@ -129,7 +129,6 @@ const SubTitle = styled.div`
     line-height: 32px;
   }
 `;
-
 const ResumeButton = styled.a`
   -webkit-appearance: button;
   -moz-appearance: button;
@@ -141,48 +140,51 @@ const ResumeButton = styled.a`
   text-align: center;
   padding: 16px 0;
 
-  background: hsla(271, 100%, 50%, 1);
+  background: hsla(320, 100%, 65%, 1);
   background: linear-gradient(
     225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
+    hsla(320, 100%, 65%, 1) 0%,
+    hsla(340, 100%, 85%, 1) 100%
   );
   background: -moz-linear-gradient(
     225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
+    hsla(320, 100%, 65%, 1) 0%,
+    hsla(340, 100%, 85%, 1) 100%
   );
   background: -webkit-linear-gradient(
     225deg,
-    hsla(271, 100%, 50%, 1) 0%,
-    hsla(294, 100%, 50%, 1) 100%
+    hsla(320, 100%, 65%, 1) 0%,
+    hsla(340, 100%, 65%, 1) 100%
   );
   box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
   border-radius: 50px;
   font-weight: 600;
   font-size: 20px;
 
-     &:hover {
-        transform: scale(1.05);
+  color: white;
+
+  &:hover {
+    transform: scale(1.05);
     transition: all 0.4s ease-in-out;
-    box-shadow:  20px 20px 60px #1F2634,
+    box-shadow: 20px 20px 60px #1f2634, -20px -20px 60px #1f2634;
     filter: brightness(1);
-    }    
-    
-    
-    @media (max-width: 640px) {
-        padding: 12px 0;
-        font-size: 18px;
-    } 
-    color: white;
+  }
+
+  @media (max-width: 640px) {
+    padding: 12px 0;
+    font-size: 18px;
+  }
 `;
+
+
+
 
 const Img = styled.img`
   border-radius: 50%;
   width: 100%;
   height: 100%;
-  max-width: 400px;
-  max-height: 400px;
+  max-width: 500px;
+  max-height: 500px;
   border: 2px solid ${({ theme }) => theme.primary};
 
   @media (max-width: 640px) {
@@ -232,7 +234,7 @@ const Hero = () => {
                   Hi, I am <br /> {Bio.name}
                 </Title>
                 <TextLoop>
-                  I am a
+                  Interested in
                   <Span>
                     <Typewriter
                       options={{
@@ -256,7 +258,7 @@ const Hero = () => {
             <HeroRightContainer>
               <motion.div {...headContentAnimation}>
                 <Tilt>
-                  <Img src={HeroImg} alt="Rishav Chanda" />
+                  <Img src={HeroImg} alt="Rani Kumari" />
                 </Tilt>
               </motion.div>
             </HeroRightContainer>

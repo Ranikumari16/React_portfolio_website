@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link as LinkR } from "react-router-dom";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
-import { MenuRounded } from "@mui/icons-material";
+import { MenuRounded, Info, Work, School, ContactMail } from "@mui/icons-material";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -16,8 +16,9 @@ const Nav = styled.div`
   z-index: 10;
   color: white;
 `;
+
 const ColorText = styled.div`
-  color: ${({ theme }) => theme.primary};
+  color: #ff69b4;
   font-size: 32px;
 `;
 
@@ -30,6 +31,7 @@ const NavbarContainer = styled.div`
   justify-content: space-between;
   font-size: 1rem;
 `;
+
 const NavLogo = styled(LinkR)`
   display: flex;
   align-items: center;
@@ -61,6 +63,10 @@ const NavLink = styled.a`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
   &:hover {
     color: ${({ theme }) => theme.primary};
   }
@@ -73,14 +79,15 @@ const ButtonContainer = styled.div`
   justify-content: end;
   align-items: center;
   padding: 0 6px;
+
   @media screen and (max-width: 768px) {
     display: none;
   }
 `;
 
 const GithubButton = styled.a`
-  border: 1px solid ${({ theme }) => theme.primary};
-  color: ${({ theme }) => theme.primary};
+  border: 1px solid #ff69b7; /* Hot pink */
+  color: #ff69b7; /* Hot pink */
   justify-content: center;
   display: flex;
   align-items: center;
@@ -88,12 +95,13 @@ const GithubButton = styled.a`
   cursor: pointer;
   padding: 10px 20px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   transition: all 0.6s ease-in-out;
   text-decoration: none;
+
   &:hover {
-    background: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.text_primary};
+    background: #ff69b6; /* Hot pink */
+    color: #fff; /* White */
   }
 `;
 
@@ -103,6 +111,7 @@ const MobileIcon = styled.div`
   align-items: center;
   color: ${({ theme }) => theme.text_primary};
   display: none;
+
   @media screen and (max-width: 768px) {
     display: block;
   }
@@ -122,7 +131,6 @@ const MobileMenu = styled.ul`
   position: absolute;
   top: 80px;
   right: 0;
-
   transition: all 0.6s ease-in-out;
   transform: ${({ isOpen }) =>
     isOpen ? "translateY(0)" : "translateY(-100%)"};
@@ -135,12 +143,13 @@ const MobileMenu = styled.ul`
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
+
   return (
     <Nav>
       <NavbarContainer>
         <NavLogo to="/">
-          <ColorText>&lt;</ColorText>Rishav
-          <div style={{ color: theme.primary }}>/</div>Chanda
+          <ColorText>&lt;</ColorText>Rani
+          <div style={{ color: "#ff69b4" }}>/</div>Kumari
           <ColorText>&gt;</ColorText>
         </NavLogo>
 
@@ -149,29 +158,29 @@ const Navbar = () => {
         </MobileIcon>
 
         <NavItems>
-          <NavLink href="#About">About</NavLink>
-          <NavLink href="#Skills">Skills</NavLink>
-          <NavLink href="#Experience">Experience</NavLink>
-          <NavLink href="#Projects">Projects</NavLink>
-          <NavLink href="#Education">Education</NavLink>
+          <NavLink href="#About"><Info /> About</NavLink>
+          <NavLink href="#Skills"><Work /> Skills</NavLink>
+          <NavLink href="#Experience"><Work /> Experience</NavLink>
+          <NavLink href="#Projects"><Work /> Projects</NavLink>
+          <NavLink href="#Education"><School /> Education</NavLink>
         </NavItems>
 
         {isOpen && (
           <MobileMenu isOpen={isOpen}>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#About">
-              About
+              <Info /> About
             </NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Skills">
-              Skills
+              <Work /> Skills
             </NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Experience">
-              Experience
+              <Work /> Experience
             </NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Projects">
-              Projects
+              <Work /> Projects
             </NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">
-              Education
+              <School /> Education
             </NavLink>
             <GithubButton
               href={Bio.github}

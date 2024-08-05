@@ -127,9 +127,7 @@ const Skills = () => {
             marginBottom: "40px",
           }}
         >
-          Here are some of my skills on which I have been working on for the
-          past 3 years.
-        </Desc>
+          Here are some of my skills         </Desc>
 
         <SkillsContainer>
           {skills.map((skill, index) => (

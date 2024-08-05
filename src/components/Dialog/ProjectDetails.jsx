@@ -163,8 +163,8 @@ const Button = styled.a`
   ${({ dull, theme }) =>
     dull &&
     `
-        background-color: ${theme.bgLight};
-        color: ${theme.text_secondary};
+        background-color: #ff69b4 ;
+        color: white;
         &:hover {
             background-color: ${({ theme }) => theme.bg + 99};
         }
@@ -238,9 +238,7 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
             <Button dull href={project?.github} target="new">
               View Code
             </Button>
-            <Button href={project?.webapp} target="new">
-              View Live App
-            </Button>
+          
           </ButtonGroup>
         </Wrapper>
       </Container>

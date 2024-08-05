@@ -4,15 +4,16 @@ import { projects } from "../../data/constants";
 import ProjectCard from "../cards/ProjectCard";
 
 const Container = styled.div`
-margin-top: 100px;
-display: flex;
-flex-direction: column;
-justify-content-center;
-position: relative;
-z-index: 1;
-padding: 0 16px;
-align-items: center;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content-center;
+  position: relative;
+  z-index: 1;
+  padding: 0 16px;
+  align-items: center;
 `;
+
 const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -50,16 +51,16 @@ const Desc = styled.div`
 `;
 
 const ToggleButtonGroup = styled.div`
-display: flex;
-border: 1.5px solid ${({ theme }) => theme.primary};
-color: ${({ theme }) => theme.primary};
-font-size: 16px;
-border-radius: 12px;
-font-weight 500;
-margin: 22px 0;
-@media (max-width: 768px){
+  display: flex;
+  border: 1.5px solid #ff69b4;
+  color: #ff69b4;
+  font-size: 16px;
+  border-radius: 12px;
+  font-weight 500;
+  margin: 22px 0;
+  @media (max-width: 768px){
     font-size: 12px;
-}
+  }
 `;
 
 const ToggleButton = styled.div`
@@ -67,7 +68,7 @@ const ToggleButton = styled.div`
   border-radius: 6px;
   cursor: pointer;
   &:hover {
-    background: ${({ theme }) => theme.primary + 20};
+    background: ${({ theme }) => "#ff69b4" + 20};
   }
   @media (max-width: 768px) {
     padding: 6px 8px;
@@ -82,7 +83,7 @@ const ToggleButton = styled.div`
 
 const Divider = styled.div`
   width: 1.5px;
-  background: ${({ theme }) => theme.primary};
+  background: #ff69b4; // Hot pink color
 `;
 
 const CardContainer = styled.div`
@@ -104,8 +105,7 @@ const Projects = ({ openModal, setOpenModal }) => {
             marginBottom: "40px",
           }}
         >
-          I have worked on a wide range of projects. From web apps to android
-          apps. Here are some of my projects.
+          Here are some of my projects.
         </Desc>
         <ToggleButtonGroup>
           <ToggleButton
@@ -119,22 +119,16 @@ const Projects = ({ openModal, setOpenModal }) => {
             active={toggle === "web app"}
             onClick={() => setToggle("web app")}
           >
-            WEB APP"S
+            WEB Development
           </ToggleButton>
           <Divider />
           <ToggleButton
-            active={toggle === "android app"}
-            onClick={() => setToggle("android app")}
+            active={toggle === "UI/UX"}
+            onClick={() => setToggle("UI/UX")}
           >
-            ANDROID APP'S
+            UI/Ux project
           </ToggleButton>
           <Divider />
-          <ToggleButton
-            active={toggle === "machine learning"}
-            onClick={() => setToggle("machine learning")}
-          >
-            MACHINE LEARNING
-          </ToggleButton>
         </ToggleButtonGroup>
         <CardContainer>
           {toggle === "all" &&
