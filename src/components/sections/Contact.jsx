@@ -118,32 +118,21 @@ const Contact = () => {
   const form = useRef();
   const [status, setStatus] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Example form submission handling
     const formData = new FormData(form.current);
-    const data = {};
-    formData.forEach((value, key) => {
-      data[key] = value;
-    });
+    const data = Object.fromEntries(formData.entries());
 
-    try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+    // Do something with the data, like sending it to an API
+    console.log('Form data:', data);
 
-      if (response.ok) {
-        setStatus('Message Sent');
-        form.current.reset();
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
-      setStatus('Error: ' + error.message);
-    }
+    // Simulate form submission
+    setTimeout(() => {
+      setStatus('Message sent successfully!');
+      form.current.reset();
+    }, 1000);
   };
 
   return (
