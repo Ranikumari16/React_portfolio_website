@@ -287,18 +287,17 @@
         }
       ]
     }
-  ],
- "asset": {
-  "extras": {
-    "author": "Rani Kumari",
-    "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-    "source": "https://sketchfab.com/3d-models/rhombi-cubocta-cross-af4c6cd0dd434e3d88556da1bdd567b5",
-    "title": "Rhombi Cubocta Cross"
+   ],
+  "asset": {
+    "extras": {
+      "author": "Rani Kumari",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/rhombi-cubocta-cross-af4c6cd0dd434e3d88556da1bdd567b5",
+      "title": "Rhombi Cubocta Cross"
+    },
+    "generator": "Rani Kumari",
+    "version": "2.0"
   },
-  "generator": "Your Generator",
-  "version": "2.0"
-}
-,
   "bufferViews": [
     {
       "buffer": 0,
