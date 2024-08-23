@@ -1,7 +1,7 @@
 {
   "name": "portfolio-website",
   "version": "0.1.1",
-  "homepage": "https://Ranikumari16.github.io/readme/",
+  "homepage": "https://Ranikumari16.github.io",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.1.0",

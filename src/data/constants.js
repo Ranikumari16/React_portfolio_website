@@ -4,7 +4,7 @@ export const Bio = {
     "FullStack Developer",
     "UI/UX Design",
     "Programming",
-    "Problems sloving"
+    "Problems solving"
   ],
   description:
     "A proactive and adaptable professional with a passion for backend development. I bring a positive attitude and a growth mindset, eager to tackle new challenges and make impactful contributions.",
